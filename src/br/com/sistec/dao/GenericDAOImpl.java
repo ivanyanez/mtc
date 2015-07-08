@@ -1,9 +1,15 @@
 package br.com.sistec.dao;
 
+import java.lang.annotation.Annotation;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -25,17 +31,32 @@ import br.com.sistec.util.HibernateUtil;
 	
 		@Override
 		public void update(T object) {
+			Session session = HibernateUtil.getSessionFactory().openSession();
+	        session.beginTransaction();
+
+	        try {
+	            session.merge(object);
+	            session.getTransaction().commit();
+	        } catch (HibernateException e) {
+	            throw e;
+	        } finally {
+	            session.getTransaction().rollback();
+	            session.close();
+	        }
 			
 		
 }
 
 
 		@Override
-		public T get(Class<T> cl, Integer id) {
-			// TODO Auto-generated method stub
-			return null;
+		public T get(Class<T> cl, Long id) {
+			Session session = sessionFactory.getCurrentSession();
+			session.beginTransaction();
+			@SuppressWarnings("unchecked")
+			T element = (T) session.get(cl, id);
+			session.getTransaction().commit();
+			return element;
 		}
-
 
 		
 		 @Override
@@ -67,14 +88,48 @@ import br.com.sistec.util.HibernateUtil;
 
 		@Override
 		public void delete(T object) {
-			// TODO Auto-generated method stub
+			Session session = HibernateUtil.getSessionFactory().openSession();
+			session.beginTransaction();
+			
+			try {
+	            session.delete(object);
+	            session.getTransaction().commit();
+	        } catch (HibernateException e) {
+	            throw e;
+	        } finally {
+	            session.getTransaction().rollback();
+	            session.close();
+	        }
 			
 		}
 
 
+		@SuppressWarnings("unchecked")
 		@Override
 		public List<T> query(String hsql, Map<String, Object> params) {
-			// TODO Auto-generated method stub
-			return null;
+			Session session = sessionFactory.getCurrentSession();
+			session.beginTransaction();
+			Query query = session.createQuery(hsql);
+			if (params != null) {
+				for (String i : params.keySet()) {
+					query.setParameter(i, params.get(i));
+				}
+			}
+
+			List<T> result = null;
+			if ((hsql.toUpperCase().indexOf("DELETE") == -1)
+					&& (hsql.toUpperCase().indexOf("UPDATE") == -1)
+					&& (hsql.toUpperCase().indexOf("INSERT") == -1)) {
+				result = query.list();
+			} else {
+			}
+			session.getTransaction().commit();
+
+			return result;
 		}
+
+		
 	}
+	
+		 
+	

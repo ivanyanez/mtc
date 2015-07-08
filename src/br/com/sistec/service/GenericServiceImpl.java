@@ -26,9 +26,9 @@ public class GenericServiceImpl<T> implements GenericService<T> {
 
 
 	@Override
-	public T get(Class<T> cl, Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+	public T get(Class<T> cl, Long id) {
+		//LOGGER.trace("STARTED - get");
+		return (T) dao.get(cl, id);
 	}
 
 	@Override
@@ -42,24 +42,25 @@ public class GenericServiceImpl<T> implements GenericService<T> {
 		// TODO Auto-generated method stub
 
 	}
+	
+	@Override
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 	@Override
 	public List<T> query(String hsql, Map<String, Object> params) {
-		// TODO Auto-generated method stub
-		return null;
+		return (List<T>)dao.query(hsql, params);
 	}
 
 	@Override
 	public List<T> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return query("from "+cl.getName(), null);
 	}
 
-	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-
-	}
 
 	
 	
