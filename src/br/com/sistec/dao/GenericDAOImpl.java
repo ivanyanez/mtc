@@ -27,6 +27,8 @@ import br.com.sistec.util.HibernateUtil;
 			if (sessionFactory == null)
 				throw new RuntimeException("Session factory is null!!!");
 		}
+		
+	
 
 	
 		@Override
@@ -38,15 +40,15 @@ import br.com.sistec.util.HibernateUtil;
 	            session.merge(object);
 	            session.getTransaction().commit();
 	        } catch (HibernateException e) {
-	            throw e;
-	        } finally {
-	            session.getTransaction().rollback();
-	            session.close();
-	        }
+				 session.getTransaction().rollback();
+				 throw e;
+				 } finally {
+				 session.close();
+				 }
 			
 		
 }
-
+		
 
 		@Override
 		public T get(Class<T> cl, Long id) {
@@ -85,22 +87,22 @@ import br.com.sistec.util.HibernateUtil;
 			return object;
 		}*/
 
+		 
+		 
+		 public void delete(T object) {
+			 Session session = HibernateUtil.getSessionFactory().openSession();
+			 session.beginTransaction();
+			 try {
+			 session.delete(object);
+			 session.getTransaction().commit();
+			 } catch (HibernateException e) {
+			 session.getTransaction().rollback();
+			 throw e;
+			 } finally {
+			 session.close();
+			 }
 
-		@Override
-		public void delete(T object) {
-			Session session = HibernateUtil.getSessionFactory().openSession();
-			session.beginTransaction();
-			
-			try {
-	            session.delete(object);
-	            session.getTransaction().commit();
-	        } catch (HibernateException e) {
-	            throw e;
-	        } finally {
-	            session.getTransaction().rollback();
-	            session.close();
-	        }
-			
+	
 		}
 
 

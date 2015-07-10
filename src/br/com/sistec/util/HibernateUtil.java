@@ -1,10 +1,10 @@
 package br.com.sistec.util;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-
 
 import br.com.sistec.domain.Usuario;
 
@@ -42,6 +42,7 @@ public class HibernateUtil {
 		return sessionFactory;
 	}
 
+	
 	
 	
 }

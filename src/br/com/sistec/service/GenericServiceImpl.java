@@ -31,17 +31,19 @@ public class GenericServiceImpl<T> implements GenericService<T> {
 		return (T) dao.get(cl, id);
 	}
 
+	
 	@Override
 	public void update(T object) {
-		// TODO Auto-generated method stub
-
+		dao.update(object);
 	}
 
+	
 	@Override
 	public void delete(T object) {
-		// TODO Auto-generated method stub
-
+	    dao.delete(object);
 	}
+	
+	
 	
 	@Override
 	public void deleteAll() {

@@ -27,7 +27,7 @@ public class UsuarioDAOTest {
 	
 
 	Usuario usu = new Usuario();
-	
+	/*
 	usu.setUsuario("Ligia");
 	usu.setSenha("123");
 	usuarios.save(usu);
@@ -44,9 +44,14 @@ public class UsuarioDAOTest {
 
 	
            
-		}	
-		
+		}*/	
+	
+	
+	usuarios.delete(usuarios.get(Usuario.class, (long) (3)));
+	
+	
 	}
+}
 
 
 	
