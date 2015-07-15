@@ -19,9 +19,26 @@ public class Usuario {
 	@Column(name = "cpo_usuusuario", length = 40, nullable = false)
 	private String usuario;
 
-	@Column(name = "cpo_ususenha", length = 10, nullable = false)
+	
+
+	@Column(name = "cpo_ususenha", length = 10, nullable = false , insertable = true , updatable=true)
 	private String senha;
 
+	@Column(name = "cpo_lastname" , length = 100 , nullable = false, insertable = true , updatable=true)
+	private String lastname;
+	
+	@Column(name = "cpo_email" , length = 30 , nullable = false, insertable = true , updatable=true)
+	private String email;
+	
+	@Column(name = "cpo_telefone" ,length = 30 ,nullable = false, insertable = true , updatable=true)
+	private Integer telefone;
+	
+	@Column(name = "cpo_ra"  ,length = 30 ,nullable = false, insertable = true , updatable=true)
+	private String ra;
+	
+	@Column(name = "cpo_tipousuario"  ,length = 30 ,nullable = false, insertable = true , updatable=true)
+     private String tipousuario;
+	
 	
 
 	public String getUsuario() {
@@ -38,6 +55,46 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Integer getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(Integer telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getRa() {
+		return ra;
+	}
+
+	public void setRa(String ra) {
+		this.ra = ra;
+	}
+
+	public String getTipousuario() {
+		return tipousuario;
+	}
+
+	public void setTipousuario(String tipousuario) {
+		this.tipousuario = tipousuario;
 	}
 
 }

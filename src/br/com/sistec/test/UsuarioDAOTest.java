@@ -27,9 +27,14 @@ public class UsuarioDAOTest {
 	
 
 	Usuario usu = new Usuario();
-	/*
+	
 	usu.setUsuario("Ligia");
 	usu.setSenha("123");
+	usu.setEmail("ligia.nina.sjc@hotmail.com");
+	usu.setLastname("Tavares Cirino Silva");
+	usu.setTelefone(32074961);
+	usu.setRa("asdfg15454");
+	usu.setTipousuario("teacher");
 	usuarios.save(usu);
 	
 	
@@ -44,14 +49,14 @@ public class UsuarioDAOTest {
 
 	
            
-		}*/	
+		}	
 	
-	
+	/*
 	usuarios.delete(usuarios.get(Usuario.class, (long) (3)));
-	
+	*/
 	
 	}
-}
+
 
 
 	
