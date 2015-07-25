@@ -8,7 +8,42 @@
 
     <ui:composition template="/templates/modeloGeral.xhtml">
     <ui:define name="conteudo">
-    <h:outputText value="Bem Vindo ao Sistema de Gerenciamento Fatec"/> 
+		
+		    
+    <h:form>
+	<p:panelGrid columns="1">
+	
+	<p:inputText maxlength="50" size="70"/>
+	
+	<p:outputLabel Value="Utimo Nome"/> 
+	<p:inputText maxlength="50" size="70"/>
+	
+     <p:outputLabel Value="Senha"/>
+	 <p:password maxlength="50" size="70"/>
+	 
+	 <p:outputLabel value="E-mail"/>
+	 <p:inputText maxlength="50" size="70"/>
+	 
+	 <p:outputLabel value="Código Professor/Aluno"/>
+	 <p:inputText maxlength="50" size="70"/>
+	 
+        <p:outputLabel for="console" value="Basic:" />
+        <p:selectOneMenu id="console" value="" style="width:125px">
+           
+            <f:selectItem itemLabel="Professor" itemValue="PS4" />
+            <f:selectItem itemLabel="Funcionario outros" itemValue="Wii U" />
+        </p:selectOneMenu>
+	 
+	 </p:panelGrid>
+	
+	<p:panelGrid  columns="3">
+	<p:commandButton value="Salavar"/>
+	<p:commandButton value="Novo"/>
+    <p:commandButton value="Voltar"/>
+	</p:panelGrid>
+	</h:form>
+    
+    
    
    </ui:define>
    </ui:composition> 

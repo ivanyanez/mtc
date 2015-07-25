@@ -8,26 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
-
 @Entity
-@Table(name ="tbl_laboratorio")
-public class Laboratorio {
+@Table(name ="tbl_tipo")
+
+public class Tipo {
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="cpo_labid")
+	@Column(name = "cpo_tipid")
 	private Long codigo;
 	
-	@Column(name="cpo_labnome")
+	@Column(name = "cpo_tipnome")
 	private String nome;
-	
-	
-	@Column(name="cpo_labdescricao")
-	private String descricao;
-	
-	
-	
-	
+
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -43,16 +37,5 @@ public class Laboratorio {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	
 
 }

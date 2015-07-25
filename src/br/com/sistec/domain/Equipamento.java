@@ -2,30 +2,56 @@ package br.com.sistec.domain;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 @Entity
-@Table(name="tbl_usuario")
+@Table(name="tbl_equipamento")
 public class Equipamento {
 	
 	@Id
-	
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name= "eqpto_id")
 	private Long codigo;
 	
+	@OneToOne
+	@JoinColumn(name="cpo_staid")
+	private Status status_id;
+	
+	@OneToOne
+	@JoinColumn(name="cpo_tipid")
+	private Tipo tipo_id;
+	
+	@Column(name = "eqpto_nome", length = 40, nullable = false)
 	private String nome;
 
+	@Column(name = "eqpto_tipo", length = 40, nullable = false)
 	private String tipo;
 	
+	
+	@Column(name="eqpto_lastcheck")
+	@Temporal(TemporalType.DATE)
 	private Date lastcheck;
 	
+	@Column(name="eqpto_nextcheck")
+	@Temporal(TemporalType.DATE)
 	private Date nextchek;
 	
-	private String status;
 	
+
+	
+	@Column(name="eqpto_descricao", length = 40, nullable = false)
 	private String descricao;
+
 	
 	
 	
@@ -69,12 +95,16 @@ public class Equipamento {
 		this.nextchek = nextchek;
 	}
 
-	public String getStatus() {
-		return status;
+	public Status getStatus() {
+		return status_id;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public Status getStatus_id() {
+		return status_id;
+	}
+
+	public void setStatus_id(Status status_id) {
+		this.status_id = status_id;
 	}
 
 	public String getDescricao() {

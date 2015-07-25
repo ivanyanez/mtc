@@ -5,6 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,8 +23,10 @@ public class Usuario {
 	@Column(name = "cpo_usuusuario", length = 40, nullable = false)
 	private String usuario;
 
+	@OneToOne
+	@JoinColumn(name="cpo_cargoid")
+	private Cargo cargo_id;
 	
-
 	@Column(name = "cpo_ususenha", length = 10, nullable = false , insertable = true , updatable=true)
 	private String senha;
 
@@ -96,5 +102,6 @@ public class Usuario {
 	public void setTipousuario(String tipousuario) {
 		this.tipousuario = tipousuario;
 	}
+
 
 }

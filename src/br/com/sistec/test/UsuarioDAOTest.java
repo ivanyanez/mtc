@@ -3,12 +3,18 @@ package br.com.sistec.test;
 
 
 
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
 
 import org.hibernate.SessionFactory;
 
-
 import br.com.sistec.dao.GenericDAOImpl;
+import br.com.sistec.domain.Cargo;
+import br.com.sistec.domain.Descarte;
 import br.com.sistec.domain.Usuario;
 import br.com.sistec.service.GenericService;
 import br.com.sistec.service.GenericServiceImpl;
@@ -24,8 +30,32 @@ public class UsuarioDAOTest {
 	GenericService<Usuario> usuarios = new GenericServiceImpl<Usuario>(
 			Usuario.class, HibernateUtil.getSessionFactory());
 	
+	GenericService<Cargo> car = new GenericServiceImpl<Cargo>(
+			Cargo.class, HibernateUtil.getSessionFactory());
 	
-
+	GenericService<Descarte> descar = new GenericServiceImpl<Descarte>(
+			Descarte.class, HibernateUtil.getSessionFactory());
+	
+	
+	
+	 Descarte descarte = new Descarte();
+	 
+	 
+	 descarte.setDescricao("Um Dois tres");
+	 descarte.setData(new Date());
+	 
+	 descar.save(descarte);
+	
+	
+	/*
+	Cargo carg = new Cargo();
+	
+	carg.setTitulo("123");
+	car.save(carg);
+*/
+	
+	/*
+	
 	Usuario usu = new Usuario();
 	
 	usu.setUsuario("Ligia");
@@ -56,6 +86,14 @@ public class UsuarioDAOTest {
 	*/
 	
 	}
+
+		private static Calendar Date() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		
+}
 
 
 

@@ -1,17 +1,48 @@
 package br.com.sistec.domain;
 
-import java.sql.Date;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name ="tbl_descarte")
 public class Descarte {
 	
+	
 
+	@Id
+    @Column(name="cpo_descarteid")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long codigo;
+	
+	
+	@OneToOne
+	@JoinColumn(name="cpo_usuid")
+	private Usuario usuario_id;
+	
+	@OneToOne
+	@JoinColumn(name="eqpto_id")
+	private Equipamento equipamento_id;
+	
+	
+	@Column(name="descart_data")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date  data; 
+	
 
-	private Date data;
 	
-	private Usuario usuario;
 	
-	private Equipamento equipamento;
-	
+	@Column(name="descart_descricao")
 	private String descricao;
 	
 	
@@ -19,29 +50,26 @@ public class Descarte {
 	
 			
 
+	
+
+
 	public Date getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+
+
+	public void setData(Date date) {
+		this.data = date;
 	}
+
+
 
 	public Usuario getUsuario() {
-		return usuario;
+		return usuario_id;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 
-	public Equipamento getEquipamento() {
-		return equipamento;
-	}
-
-	public void setEquipamento(Equipamento equipamento) {
-		this.equipamento = equipamento;
-	}
 
 	public String getDescricao() {
 		return descricao;
@@ -50,8 +78,15 @@ public class Descarte {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	
-	
 
+
+
+	
+	
 }
+
+
+
+	
+	
+	

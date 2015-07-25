@@ -6,6 +6,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+import br.com.sistec.domain.Cargo;
+import br.com.sistec.domain.Descarte;
 import br.com.sistec.domain.Usuario;
 
 public class HibernateUtil {
@@ -18,6 +20,9 @@ public class HibernateUtil {
 			Configuration configuration = new Configuration();
 			
 			configuration.addAnnotatedClass(Usuario.class);
+			configuration.addAnnotatedClass(Cargo.class);
+			configuration.addAnnotatedClass(Descarte.class);
+
 			
 			configuration.configure();
 
