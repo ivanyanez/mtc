@@ -47,7 +47,6 @@ public class Equipamento {
 	private Date nextchek;
 	
 	
-
 	
 	@Column(name="eqpto_descricao", length = 40, nullable = false)
 	private String descricao;

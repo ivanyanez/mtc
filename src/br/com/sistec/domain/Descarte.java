@@ -25,15 +25,17 @@ public class Descarte {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long codigo;
 	
-	
+	/*
 	@OneToOne
 	@JoinColumn(name="cpo_usuid")
 	private Usuario usuario_id;
+	*/
 	
+	/*
 	@OneToOne
 	@JoinColumn(name="eqpto_id")
 	private Equipamento equipamento_id;
-	
+	*/
 	
 	@Column(name="descart_data")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -63,13 +65,13 @@ public class Descarte {
 		this.data = date;
 	}
 
-
+/*
 
 	public Usuario getUsuario() {
 		return usuario_id;
 	}
 
-
+*/
 
 	public String getDescricao() {
 		return descricao;

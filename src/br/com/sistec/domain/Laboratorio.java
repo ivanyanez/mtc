@@ -25,6 +25,8 @@ public class Laboratorio {
 	@Column(name="cpo_labdescricao")
 	private String descricao;
 	
+	@Column(name="cpo_labsala")
+	private Integer salaNumero;
 	
 	
 	

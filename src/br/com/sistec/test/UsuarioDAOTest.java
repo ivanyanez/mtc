@@ -11,8 +11,10 @@ import java.util.List;
 import javax.persistence.Column;
 
 import org.hibernate.SessionFactory;
+import org.junit.Test;
 
 import br.com.sistec.dao.GenericDAOImpl;
+import br.com.sistec.dao.UsuarioDAO;
 import br.com.sistec.domain.Cargo;
 import br.com.sistec.domain.Descarte;
 import br.com.sistec.domain.Usuario;
@@ -22,10 +24,31 @@ import br.com.sistec.util.HibernateUtil;
 
 public class UsuarioDAOTest {
 	
-		public static void main(String[] args) {
-			
 		
-
+			
+			@Test
+			public void inserir(){
+				
+				Usuario usuario = new Usuario();
+				
+				usuario.setLastname("jjj33");
+				usuario.setRa("23232");
+				usuario.setSenha("55454");
+				usuario.setTelefone(3285);
+				usuario.setTipousuario("5");
+				usuario.setUsuario("nome");
+				
+				usuario.setEmail("ffsa");
+				
+				UsuarioDAO usuariodao = new UsuarioDAO();	
+			
+				usuariodao.inserir(usuario);
+				
+			}
+			
+			
+			
+/*
 
 	GenericService<Usuario> usuarios = new GenericServiceImpl<Usuario>(
 			Usuario.class, HibernateUtil.getSessionFactory());
@@ -46,7 +69,7 @@ public class UsuarioDAOTest {
 	 
 	 descar.save(descarte);
 	
-	
+	*/
 	/*
 	Cargo carg = new Cargo();
 	
@@ -85,15 +108,18 @@ public class UsuarioDAOTest {
 	usuarios.delete(usuarios.get(Usuario.class, (long) (3)));
 	*/
 	
-	}
-
+	
+/*
 		private static Calendar Date() {
 			// TODO Auto-generated method stub
 			return null;
 		}
 
-		
+	*/
+	
+	
 }
+
 
 
 

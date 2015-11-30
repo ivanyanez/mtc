@@ -13,23 +13,31 @@
     <h:form>
 	<p:panelGrid columns="1">
 	
-	 <p:outputLabel for="console" value="Primeiro Nome" />
-	<p:inputText maxlength="50" size="70"/>
+	 <p:outputLabel for="console" value="Primeiro Nome"/>
+	<p:inputText maxlength="50" size="70" action="#{usuarioBean.usuarios.lastname}"/>
 	
-     <p:outputLabel for="console" value="Último Nome"/>
-	<p:inputText maxlength="50" size="70"/>
+      <p:outputLabel for="console" value="Último Nome" />
+	<p:inputText maxlength="50" size="70" action="#{usuarioBean.usuarios.lastname}" />
 	
      <p:outputLabel for="console" value="Senha" />
-	 <p:password maxlength="50" size="70"/>
+	 <p:password maxlength="50" size="70" action="#{usuarioBean.usuarios.senha}"/>
 	 
-	 <p:outputLabel value="E-mail"/>
-	 <p:inputText maxlength="50" size="70"/>
+	 <p:outputLabel for="console" value="E-mail" />
+	 <p:inputText maxlength="50" size="70" action="#{usuarioBean.usuarios.email}"/>
+	 
+	 <p:outputLabel for="console" value="Telefone"/>
+	 <p:inputText maxlength="50" size="70"  action="#{usuarioBean.usuarios.telefone}"/>
+	 
+	 <p:outputLabel for="console" value="Tipo de Usuario"/>
+	 <p:inputText maxlength="50" size="70" action="#{usuarioBean.usuarios.tipousuario}"/>
+	 
+	
 	 
 	 <p:outputLabel value="Código Professor/Aluno"/>
 	 <p:inputText maxlength="50" size="70"/>
 	 
-        <p:outputLabel for="console" value="" />
-        <p:selectOneMenu id="console" value="" style="width:125px">
+        <p:outputLabel for="console"  />
+        <p:selectOneMenu id="console"  style="width:125px">
            
             <f:selectItem itemLabel="Professor" itemValue="PS4" />
             <f:selectItem itemLabel="Funcionario outros" itemValue="Wii U" />
@@ -38,7 +46,7 @@
 	 </p:panelGrid>
 	
 	<p:panelGrid  columns="3">
-	<p:commandButton value="Salvar"/>
+	<p:commandButton value="Salvar" action="#{usuarioBean.salvar}" />
 	<p:commandButton value="Novo"/>
     <p:commandButton value="Voltar"/>
 	</p:panelGrid>

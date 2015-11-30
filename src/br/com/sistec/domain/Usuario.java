@@ -23,9 +23,9 @@ public class Usuario {
 	@Column(name = "cpo_usuusuario", length = 40, nullable = false)
 	private String usuario;
 
-	@OneToOne
+	/*@OneToOne
 	@JoinColumn(name="cpo_cargoid")
-	private Cargo cargo_id;
+	private Cargo cargo_id;*/
 	
 	@Column(name = "cpo_ususenha", length = 10, nullable = false , insertable = true , updatable=true)
 	private String senha;
@@ -67,9 +67,8 @@ public class Usuario {
 		return lastname;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
+
+	
 
 	public String getEmail() {
 		return email;
@@ -102,6 +101,13 @@ public class Usuario {
 	public void setTipousuario(String tipousuario) {
 		this.tipousuario = tipousuario;
 	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+		
+		
+	}
+
 
 
 }
