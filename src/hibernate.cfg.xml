@@ -35,12 +35,9 @@
 		
 		<mapping class="br.com.sistec.domain.Usuario"/>
 		<mapping class="br.com.sistec.domain.Cargo"/>
-		<mapping class="br.com.sistec.domain.Descarte"/>
-		
-		<!-- 
-	
-		<mapping class="br.com.sistec.util.HibernateUtil"/>
-		 -->
+		 <mapping class="br.com.sistec.domain.Descarte"/>
+		<mapping class="br.com.sistec.domain.Equipamento"/>
+			
 	
 	</session-factory>
 

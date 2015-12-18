@@ -3,20 +3,18 @@ package br.com.sistec.dao;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
+import br.com.sistec.domain.Cargo;
 import br.com.sistec.domain.Equipamento;
-import br.com.sistec.domain.Usuario;
 import br.com.sistec.util.HibernateUtil;
 
-public class EquipamentoDAO {
+public class CargoDAO {
 	
-	
-	
-	public void inserir (Equipamento equipamento){
+	public void inserir (Cargo cargo){
 		 Session session = HibernateUtil.getSessionFactory().openSession();
 	        session.beginTransaction();
 
 	        try {
-	            session.persist(equipamento);
+	            session.persist(cargo);
 	            session.getTransaction().commit();
 	        } catch (HibernateException e) {
 	            session.getTransaction().rollback();
@@ -25,5 +23,7 @@ public class EquipamentoDAO {
 	            session.close();
 	        }
 	    }
+
+}
 
 }
